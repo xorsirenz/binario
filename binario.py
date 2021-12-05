@@ -99,7 +99,7 @@ def hexdumper():
         try:
             filedump = open(filename, 'rb')
         except:
-            print(C+' File not found. Please verify filename, or the path is correct'+W) #+W, sys.exc_info()[0])
+            print(C+' File not found. Please verify filename, or the path is correct.'+W) #+W, sys.exc_info()[0])
             hexdumper()
         counter = 0
         offset = 0
@@ -159,7 +159,7 @@ def hexdumper():
 
 # Check MD5 / SHA1 / SHA256 checksum
 def filesum():
-    filename = (input(P+' Input filename: '+C+'> '+W))
+    filename = (input(P+' Input filename '+C+'> '+W))
     if filename == 'exit' or filename == 'q' :
         exit()
     elif filename == 'menu' :
