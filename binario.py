@@ -24,7 +24,7 @@ def hex2ascii():
         main()
     else:
         print(C+' > '+ (bytes.fromhex(ascii).decode('utf-8')))
-    main()
+    hex2ascii()
 
 # Converts ASCII to Hex
 def ascii2hex():
@@ -32,7 +32,7 @@ def ascii2hex():
     hex_binary = hex.encode(encoding='utf_8')
     hex_text = hex_binary.hex()
     print(C+' > '+ (hex_text))
-    main()
+    menu()
 
 # Convert Hex to Binary
 def hex2bin():
@@ -46,7 +46,7 @@ def hex2bin():
         scale = 16
         bin_out = "{0:08b}".format(int(hex_text, 16))
         print(str(C+' > '+(bin_out)))
-        main()
+        hex2bin()
 
 # Convert Binary to Hex
 def bin2hex():
@@ -59,7 +59,7 @@ def bin2hex():
     else:
         hex_out = hex(int(bin_text, 2))
         print(str(C+' > '+(hex_out)))
-        main()
+        bin2hex()
 
 # Convert Hex to Decimal
 def hex2dec():
@@ -72,7 +72,7 @@ def hex2dec():
     else:
         decimal_text = int(hex_text, 16)
         print(str(C+'> '+str(decimal_text)))
-        main()
+        hex2dec()
 
 # Convert Decimal to Hex
 def dec2hex():
@@ -85,7 +85,7 @@ def dec2hex():
     else:
         hex_text = hex(int(dec_text))
         print(str(C+'> '+(hex_text)))
-        main()
+        dec2hex()
 
 # Hexdump
 def hexdumper():
@@ -177,22 +177,34 @@ def filesum():
             print(P+' MD5 Checksum  '+C+'> '+ (hash_md5.hexdigest()))
             print(P+' SHA1 Checksum '+C+'> '+(hash_sha1.hexdigest()))
             print(P+' SHA256 Checksum '+C+'> '+(hash_sha256.hexdigest()))
-            main()
+            filesum()
 
 # Decodes ROT13
 def derot13():
     rot = str(input(P+' Input Cipher '+C+'> '+W))
-    print(C+' > '+ (encode(rot, 'rot_13')))
-    main()
+    if rot == 'exit' or rot == 'q' :
+        exit()
+    elif rot == 'menu' :
+        menu()
+        main()
+    else:
+        print(C+' > '+ (encode(rot, 'rot_13')))
+        derot13()
 
 # Encodes Base64
 def enbase64():
     encode_text = str(input(P+' Input Base64 to encode '+C+'> '+W))
-    message_bytes = encode_text.encode('ascii')
-    base64_bytes = base64.b64encode(message_bytes)
-    encode_message = base64_bytes.decode('ascii')
-    print(C+'> '+ (encode_message))
-    main()
+    if encode_text == 'exit' or encode_text == 'q' :
+        exit()
+    elif encode_text == 'menu' :
+        menu()
+        main()
+    else:
+        message_bytes = encode_text.encode('ascii')
+        base64_bytes = base64.b64encode(message_bytes)
+        encode_message = base64_bytes.decode('ascii')
+        print(C+'> '+ (encode_message))
+        enbase64()
 
 # Decodes Base64
 def debase64():
@@ -207,16 +219,22 @@ def debase64():
         message_bytes = base64.b64decode(base64_bytes)
         decode_message = message_bytes.decode('ascii')
         print(C+'> '+ (decode_message))
-        main()
+        debase64()
 
 # Encodes ASCII85
 def enbase85():
     encode_text = str(input(P+'Input ASCII to encode '+C+'> '+W))
-    message_bytes = encode_text.encode('ascii')
-    base85_bytes = base64.a85encode(message_bytes)
-    encode_message = base85_bytes.decode('ascii')
-    print(C+'> '+ (encode_message))
-    main()
+    if encode_text == 'exit' or 'q' :
+        exit()
+    elif encode_text == 'menu' :
+        menu()
+        main()
+    else:
+        message_bytes = encode_text.encode('ascii')
+        base85_bytes = base64.a85encode(message_bytes)
+        encode_message = base85_bytes.decode('ascii')
+        print(C+'> '+ (encode_message))
+        enbase85()
 
 # Decodes ASCII85
 def debase85():
@@ -231,7 +249,7 @@ def debase85():
         message_bytes = base64.a85decode(base85_bytes)
         decode_message = message_bytes.decode('ascii')
         print(C+'> '+ (decode_message))
-        main()
+        debase85()
 
 # CIDR Calculator
 def cidr():
@@ -252,7 +270,7 @@ def cidr():
                     f.write(str(c) + '\n')
             main()
         elif cmd == 'n' or cmd == 'no' or cmd == 'No' :
-            main()
+            menu()
 
 # IP to Binary
 def ip2bin():
@@ -265,7 +283,7 @@ def ip2bin():
     else:
         ip2bin_result = '.'.join(map(str,['{0:08b}'.format(int(x)) for x in ip2bin_text.split('.')]))
         print(C+'> '+ (ip2bin_result))
-        main()
+        ip2bin()
 
 # Binary to Decimal
 def bin2dec():
@@ -278,7 +296,7 @@ def bin2dec():
     else:
         bin2dec_result = '.'.join(str(int(x, 2)) for x in bin2dec_text.split('.'))
         print(C+'> '+ str(bin2dec_result))
-        main()
+        bin2dec()
 
 def banner():
     try:
