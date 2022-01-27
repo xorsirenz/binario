@@ -33,6 +33,7 @@ def ascii2hex():
     hex_text = hex_binary.hex()
     print(C+' > '+ (hex_text))
     menu()
+    main()
 
 # Convert Hex to Binary
 def hex2bin():
@@ -271,6 +272,7 @@ def cidr():
             main()
         elif cmd == 'n' or cmd == 'no' or cmd == 'No' :
             menu()
+            main()
 
 # IP to Binary
 def ip2bin():
