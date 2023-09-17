@@ -23,7 +23,7 @@ A lightweight encoding & decoding tool. [v.0.0.1]
 
 To install and use `Binario`, you can build locally:
 ```
-$ git clone https://github.com/madison-craig/binario.git 
+$ git clone https://github.com/x3-madison/binario.git 
 $ cd binario/
 $ python3 binario.py
 ```
