@@ -310,7 +310,7 @@ def banner():
     print (C+'  Welcome to Binario v.0.0.1')
     print ('')
     print (C+' '+C+'     Created by: Madison')
-    print (P+'      GitHub: ['+C+'x3-madison'+P+']')
+    print (P+'      GitHub: ['+C+'bootlegwifi'+P+']')
     print ('')
 
 def menu():
